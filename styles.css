@@ -1,0 +1,377 @@
+/*================== imported fonts ==================*/
+@import url('https://fonts.google.com/specimen/Alata');
+@import url('https://fonts.google.com/specimen/Josefin+Sans');
+/*==================Basic Reset ==================*/
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*================== Custom Properties ==================*/
+
+:root{
+    /*======== header height ========*/
+    --header-height: 6 rem;
+    /*======== Colors ========*/
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 0%);
+    --dark-gray: hsl(0, 0%, 55%);
+    --purple-solid: hsl(277, 78%, 17%);
+    --purple-transparent: #350a4fb3;
+    --very-dark-gray: hsl(0, 0%, 41%);
+    /*======= Body Typograpghy=======*/
+    --big-font-size: 3.2rem;
+    --h1-font-size: 2.8rem;
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 2.175rem;
+    --normal-font-size: 1.5rem;
+    --small-font-size: 1.2rem;
+    --heading-font-family: 'Josefin Sans', sans-serif;
+    --body-font-family: 'Alata', sans-serif;
+    /*======= font weights =======*/
+    --alta-font-weight: 400;
+    --jose-font-weight: 300;
+    --medium-font-weight: 500;
+    --semi-bold-font-weight: 600;
+    /*======= Margin and Padding=======*/
+    --margin-3: 3rem;
+    --margin-2-5: 2.5rem;
+    --margin-2: 2rem;
+    --margin-1-5: 1.5rem;
+    --margin-1: 1rem;
+    --section-padding: 5rem 0;
+    /*======= Layout =======*/
+    --num-of-grid-cols: 4;
+}
+
+/*================== Global Styles ==================*/
+    
+ html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font-family);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--heading-font-family);
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+/*================ Reusable Classes ================ */
+
+.container {
+    width: 100%;
+    max-width: 126rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.grid__column {
+    display: grid;
+    grid-template-columns: repeat(var(--num-of-grid-cols), 1fr);
+    gap: 0 2rem;
+}
+
+.section {
+    padding: var(--section-padding)
+}
+
+.title {
+    line-height: 1.5;
+    text-align: center;
+    color: var(--black-color);
+    text-transform: uppercase;
+}
+.secondary_title{
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: var(--h2-font-size);
+}
+
+/*================ Header Section Styles ================ */
+.page_header{
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 1000;
+    
+}
+
+.page_header.active{
+    background-color: var(--purple-solid);
+}
+.logo{
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.main_nav{
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+.hamburger-menu{
+    position: relative;
+    z-index: 1500;
+}
+.hamburger-menu .times{
+    display: none;
+}
+
+.menu-open .hamburger-menu .times{
+    display: block;
+}
+.menu-open .hamburger-menu .bars{
+    display: none;
+}
+
+.nav_list{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    transition: opacity .5s;
+    z-index: 1400;
+}
+
+.menu-open .nav_list{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav_item{
+    margin-left: 1.5rem;
+
+}
+.nav_link{
+    font-size: 3rem;
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-family: var(--heading-font-family);
+}
+ /*================================ Banner Section Styles ================================*/
+    
+.banner__section {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('./images/1615497654_wolfenstein-the-new-order-screen-4.jpg') center no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+}
+.banner__section::before{
+    content:"";
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(53,10,79, 0.7);
+    z-index: -1;
+}
+.main_heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.banner_title {
+    color: var(--white-color);
+    font-size: var(--big-font-size);
+    letter-spacing: 1px;
+}
+.banner_text{
+    color: var(--white-color);
+    text-align: center;
+    margin: 1.2rem 0;
+}
+.banner-btn{
+    margin-top:1rem ;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 0.9rem 3.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10rem;
+    display: inline-flex;
+    background-image: linear-gradient(to right, #fa9e2c, #8f50fb);
+}
+
+.desktop {
+    display: none;
+}
+/*================================ Features Section Styles ====================*/
+.section_head{
+    font-size: var(--h3-font-size);
+    text-align: center;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap:2.5rem;
+}
+.grid-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.grid-title{
+    margin: 1rem 0;
+    font-size: 2rem;
+    text-align: center;
+}
+.grid-item-description{
+    padding: 0.5rem;
+    text-align:center;
+}
+
+.about_section_background{
+    padding: 1.5rem;
+    text-align: center;
+    background-color: var(--white-color);
+}
+.about-description{
+    margin-bottom: 2rem;
+}
+
+.about__section{
+    background-image: linear-gradient(to right, #fa9e2c, #8f50fb);
+}
+
+/*=============== Footer Section =============== */
+.footer_img{
+    text-align: center;
+    color: #fff;
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+}
+.main__footer{
+    padding: 5rem 0;
+    background-color: black;
+}
+.social-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.social-media-link:not(:last-child){
+    margin-right: 2rem;
+}
+.copyrights{
+    text-align: center;
+    color: #fff;
+    margin: 2rem 0;
+}
+
+/*====================================== Responsive ======================================*/
+@media screen and (min-width: 768px){
+    /*=== Header Section ===*/
+    .header{
+        height: 10rem;
+    }
+    .header .active{
+        height: 6rem;
+    }
+    .banner_title{
+        font-size: 8rem;
+    }
+    .banner_text{
+        font-size: 1.8rem;
+    }
+    .banner-btn{
+    margin-top:1rem ;
+    padding: 1rem 4rem;
+    }
+    .footer-flex{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .footer_img{
+        margin-bottom: initial;
+    }
+    .social-media-link:not(:last-child){
+        margin-right: 3.5rem;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .section{
+        padding: 10rem 0;
+    }
+    .hamburger-menu{
+        display: none;
+    }
+    .nav_list{
+        position: initial;
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        flex-direction: row;
+        justify-content: initial;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .nav-item:not(:last-child){
+        margin-bottom: initial;
+    }
+    .nav_link{
+        font-size: 1.3rem;
+        font-weight: normal;
+        transition: color 0.5s;
+    }
+}
